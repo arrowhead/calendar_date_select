@@ -2,15 +2,15 @@ module CalendarDateSelect::IncludesHelper
   # returns the selected calendar_date_select stylesheet (not an array)
   def calendar_date_select_stylesheets(options = {})
     options.assert_valid_keys(:style)
-    "calendar_date_select/#{options[:style] || "default"}"
+    "/stylesheets/calendar_date_select/#{options[:style] || "default"}"
   end
 
   # returns an array of javascripts needed for the selected locale, date_format, and calendar control itself.
   def calendar_date_select_javascripts(options = {})
     options.assert_valid_keys(:locale)
-    files = ["calendar_date_select/calendar_date_select"]
-    files << "calendar_date_select/locale/#{options[:locale]}" if options[:locale]
-    files << "calendar_date_select/#{CalendarDateSelect.format[:javascript_include]}" if CalendarDateSelect.format[:javascript_include]
+    files = ["/javascripts/calendar_date_select/calendar_date_select"]
+    files << "/javascripts/calendar_date_select/locale/#{options[:locale]}" if options[:locale]
+    files << "/javascripts/calendar_date_select/#{CalendarDateSelect.format[:javascript_include]}" if CalendarDateSelect.format[:javascript_include]
     files
   end
 
